@@ -1,5 +1,13 @@
 vim-linebox -- the VIM lines and boxes plugin.
 
+linebox is a vim plugin to draw boxes and lines. Boxes are drawn by visually
+selecting a rectangle, and then pressing either `<leader>b` or `<leader>B`
+(with default mappings, enabled in vimrc. Lines are drawn by setting a start
+and end mark, and pressing `<leader>L`. This will find the shortest path, from
+start to end (if there is a path), no matter where the start and end positions
+are, avoiding any text. Lines can start and stop on other lines, and will
+merge with them.
+
 ## Bugs
 
 **NOTE: If you find a bug, please file an issue.**
