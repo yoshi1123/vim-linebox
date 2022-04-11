@@ -1,0 +1,54 @@
+Before:
+  let root = searchpos('\v<r>')
+  let root[1] = charidx(getline(root[0]), root[1]-1)+1
+  let goal = searchpos('\v<g>')
+  let goal[1] = charidx(getline(goal[0]), goal[1]-1)+1
+
+
+Given:
+  r  g
+
+Execute(get path three east):
+  let expected = [[1,1], [1,2], [1,3], [1,4]]
+  AssertEqual expected, FindPathBF(root, goal)
+
+
+Given:
+  r
+     g
+Execute(get path one south):
+  let expected = [[1,1], [2,1], [2,2], [2,3], [2,4]]
+  AssertEqual expected, FindPathBF(root, goal)
+
+
+Given:
+  r   
+    │g
+Execute(get path one south with obstacle):
+  let expected = [[1,1], [1,2], [1,3], [1,4], [2,4]]
+  AssertEqual expected, FindPathBF(root, goal)
+
+
+Given:
+  r │ 
+     g
+Execute(get path one south another obstacle):
+  let expected = [[1,1], [2,1], [2,2], [2,3], [2,4]]
+  AssertEqual expected, FindPathBF(root, goal)
+
+
+Given:
+     
+   *r
+   │*
+    g
+Execute(get path with large obstacle):
+  let expected = [[2,3], [1,3], [1,2], [1,1], [2,1], [3,1], [4,1], [4,2], [4,3]]
+  AssertEqual expected, FindPathBF(root, goal)
+
+
+Execute(test IsEdge):
+  let p1 = [3,3]
+  let p2 = [3,4]
+  Assert IsEdge([3,3], [3,4])
+  Assert !IsEdge([3,3], [3,3])

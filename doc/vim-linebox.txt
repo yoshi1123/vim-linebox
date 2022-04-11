@@ -1,0 +1,96 @@
+*vim-linebox.txt*  The VIM lines and boxes plugin
+
+===============================================================================
+CONTENTS                                                            *vim-linebox*
+
+    1. Introduction .................................. |vim-linebox-intro|
+    1. Quick start ................................... |vim-linebox-quickstart|
+    1. Mappings ...................................... |vim-linebox-mappings|
+    1. Options and default values .................... |vim-linebox-options|
+    1. Licence ....................................... |vim-linebox-licence|
+
+
+===============================================================================
+1. Introduction                                               *vim-linebox-intro*
+
+vim-linebox is a VIM plugin to draw lines and boxes.
+
+===============================================================================
+2. Quick start                                           *vim-linebox-quickstart*
+
+Add `let g:linebox_default_maps = 1` to your vimrc (see "Default mappings"
+below).
+
+
+Boxes:
+
+Use visual mode to select a rectable, and make a box with `<leader>b`.
+
+Use visual mode to select a rectable, and make a box with `<leader>B` to blend
+with other lines.
+
+`<leader>b` vs `<leader>B`:
+
+>
+    <leader>b   <leader>B
+
+     │  │  │     │  │  │
+    ┌───────┐   ┌┼──┼──┼┐
+    ││  │  ││   ││  │  ││
+    └───────┘   └┼──┼──┼┘
+     │  │  │     │  │  │
+<
+
+
+Lines:
+
+Make a start and end mark with marks \`a and \`b. Then draw a line with
+`<leader>L`.
+
+NOTE: There must be a path of whitespace from mark a to mark b.
+
+===============================================================================
+3. Mappings                                                *vim-linebox-mappings*
+
+To enable default mappings, add `let g:linebox_default_maps = 1` to your vimrc.
+
+Default mappings:
+
+>
+    nnoremap <leader>L :call Line(g:linebox_marks[0], g:linebox_marks[1])<cr>
+    nnoremap <leader>b :call Box()<cr>
+    vnoremap <leader>b :call Box()<cr>
+    nnoremap <leader>B :call MBox()<cr>
+    vnoremap <leader>B :call MBox()<cr>
+<
+
+===============================================================================
+4. Options and default values                               *vim-linebox-options*
+
+                                                *g:linebox_default_maps*
+`let g:linebox_default_maps = 1`
+    If true, vim-linebox will create default mappings.
+
+Default: 0
+
+
+                                                *g:linebox_marks*
+`let g:linebox_marks = ["'a", "'b"]`
+    The marks used to specify start and end of lines.
+
+Default: ["'a", "'b"]
+
+
+                                                *g:linebox_animation*
+`let g:linebox_animation = 1`
+    If true, vim-linebox will show animation for lines.
+
+Default: 1
+
+===============================================================================
+5. Licence                                                  *vim-linebox-licence*
+
+This software is licensed under the GPL v3 license.
+© 2022  yoshi1@tutanota.com
+
+vim:ft=help
