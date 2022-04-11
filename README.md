@@ -89,10 +89,6 @@ let g:linebox_animation = 1
     nnoremap <leader>B :call MBox()<cr>
     vnoremap <leader>B :call MBox()<cr>
 
-## Useful mappings
-
-...
-
 ## Documentation
 
 In Vim:
