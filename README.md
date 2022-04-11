@@ -19,7 +19,7 @@ let g:linebox_default_maps = 1
 
 ## Demo
 
-[demo](doc/vim-linebox-demo.gif)
+![demo](doc/vim-linebox-demo.gif)
 
 ## Features
 
