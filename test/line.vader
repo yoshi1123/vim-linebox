@@ -1,0 +1,77 @@
+Before:
+  let root = searchpos('\v<r>')
+  let root[1] = charidx(getline(root[0]), root[1]-1)+1
+  let goal = searchpos('\v<g>')
+  let goal[1] = charidx(getline(goal[0]), goal[1]-1)+1
+
+
+Given:
+  r  g
+Execute(line three east):
+  call linebox#lines#line(root, goal)
+Expect:
+  ────
+
+
+Given:
+  r
+     g
+Execute(get path one south):
+  call linebox#lines#line(root, goal)
+Expect:
+  │
+  └───
+
+
+Given:
+  r   
+    │g
+Execute(get path one south with obstacle):
+  call linebox#lines#line(root, goal)
+Expect:
+  ───┐
+    ││
+
+
+Given:
+  r │ 
+     g
+Execute(get path one south another obstacle):
+  call linebox#lines#line(root, goal)
+Expect:
+  │ │ 
+  └───
+
+
+Given:
+     
+   *r
+   │*
+    g
+Execute(get path with large obstacle):
+  call linebox#lines#line(root, goal)
+Expect:
+  ┌─┐
+  │*│
+  ││*
+  └──
+
+
+# Marks
+
+Given:
+  r  g
+Execute:
+  call cursor(root)
+Do:
+  ma
+Execute:
+  call cursor(goal)
+Do:
+  mb
+Execute(line three east):
+  marks
+  echo input()
+  call linebox#lines#line("'a", "'b")
+Expect:
+  ────
