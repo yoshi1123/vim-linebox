@@ -96,11 +96,11 @@ let g:linebox_animation = 1
 
 ## Default mappings
 
-    nnoremap <leader>L :call Line(g:linebox_marks[0], g:linebox_marks[1])<cr>
-    nnoremap <leader>b :call Box()<cr>
-    vnoremap <leader>b :call Box()<cr>
-    nnoremap <leader>B :call MBox()<cr>
-    vnoremap <leader>B :call MBox()<cr>
+    nnoremap <leader>L :call linebox#lines#line(g:linebox_marks[0], g:linebox_marks[1])<cr>
+    nnoremap <leader>b :call linebox#boxes#box()<cr>
+    vnoremap <leader>b :call linebox#boxes#box()<cr>
+    nnoremap <leader>B :call linebox#boxes#mbox()<cr>
+    vnoremap <leader>B :call linebox#boxes#mbox()<cr>
 
 ## Documentation
 
