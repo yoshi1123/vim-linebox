@@ -1,0 +1,18 @@
+Given:
+   a
+Execute(test getcharpos cursor):
+  norm! $
+  AssertEqual [0,1,2,0], linebox#getcharpos('.')
+
+Given:
+   ││
+Execute(test getcharpos cursor multibyte):
+  norm! $
+  AssertEqual [0,1,3,0], linebox#getcharpos('.')
+
+" Given:
+"    a
+" Do:
+"   $ma
+" Execute(test getcharpos mark):
+"   AssertEqual [0,1,2,0], linebox#getcharpos("'a")
