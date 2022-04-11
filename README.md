@@ -8,6 +8,11 @@ start to end (if there is a path), no matter where the start and end positions
 are, avoiding any text. Lines can start and stop on other lines, and will
 merge with them.
 
+NOTE: Add this to your vimrc for the three default mappings:
+```
+let g:linebox_default_maps = 1
+```
+
 ## Bugs
 
 **NOTE: If you find a bug, please file an issue.**
@@ -76,8 +81,8 @@ with other lines.
 
 **Lines**:
 
-Make a start and end mark with marks \`a and \`b. Then draw a line with
-`<leader>L`.
+Make a start and end mark with marks \`a and \`b (if using default mappings).
+Then draw a line with `<leader>L`.
 
 NOTE: There must be a path of whitespace from mark a to mark b.
 
@@ -91,7 +96,7 @@ let g:linebox_animation = 1
 
 ## Default mappings
 
-    nnoremap <leader>L :call Line("'a", "'b")<cr>
+    nnoremap <leader>L :call Line(g:linebox_marks[0], g:linebox_marks[1])<cr>
     nnoremap <leader>b :call Box()<cr>
     vnoremap <leader>b :call Box()<cr>
     nnoremap <leader>B :call MBox()<cr>
